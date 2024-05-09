@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Sidebar from "./components/Sidebar";
 import AddProjectForm from "./components/AddProjectForm";
+import NoProjectSelected from "./components/NoProjectSelected";
 
 function App() {
   let initialProject = [{ name: "", description: "", dueDate: "", tasks: [] }];
@@ -25,7 +26,7 @@ function App() {
   return (
     <main className="h-screen my-1 flex gap-8">
       <Sidebar addProjectFlag={addProject} onHandleAddProject={handleAddProject} projects={projects} />
-      {addProject ? <AddProjectForm /> : <h1>Main</h1>}
+      {addProject ? <AddProjectForm /> : <NoProjectSelected onHandleAddProject={handleAddProject}/>}
     </main>
   );
 }
